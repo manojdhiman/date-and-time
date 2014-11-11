@@ -54,13 +54,15 @@ $p = new DatePeriod(
 ?>
 
 get the local machine time on a diffrent server
+<script type="text/javascript">
 function getCurrentIST()
-{ 
-var dte = new Date(); 
-dte.setTime(dte.getTime() + (dte.getTimezoneOffset()+330)*60*1000); 
-document.write(dte.toLocaleString()); 
-	
-}
-
-Read more at TECK.IN: http://teck.in/indian-standard-time-and-gmt-from.html#ixzz3Il0eNf7P
+	{ 
+	var timeOffsetInmin = -(new Date()).getTimezoneOffset();
+		var dte = new Date(); 
+		
+		dte.setTime(dte.getTime() + (dte.getTimezoneOffset()+timeOffsetInmin)*60*1000); 
+		var time=dte.toLocaleString(); 
+		document.cookie="timezone="+time;
+	}
+	</script>
 
